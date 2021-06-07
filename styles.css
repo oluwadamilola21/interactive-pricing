@@ -1,0 +1,159 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Manrope', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  color: hsl(227, 35%, 25%);
+  background-image: url(./images/bg-pattern.svg);
+  background-repeat: no-repeat;
+  background-color: hsl(230, 100%, 99%);
+ 
+ 
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+}
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15%;
+}
+.text {
+  position: absolute;
+  text-align: center;
+  
+}
+h3 {
+  font-weight: 600;
+}
+
+.container, .container-1{
+  width: 90%;
+  height: 250px;
+  max-width: 90%;
+  background-color: hsl(0, 0%, 100%);
+  margin: 0 auto;
+  text-align: center;
+  
+}
+.container{
+  margin-top: 10%;
+  border-radius: 10px 10px 0 0;
+
+}
+.container-1 {
+  margin-top: 2px;
+}
+
+.category {
+  text-transform: uppercase;
+  margin-top: 30px;
+}
+
+.straight {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top: 7px solid hsl(174, 70%, 80%) ;
+  margin: auto;
+  width: 250px;
+  margin-top: 10%;
+ 
+}
+.small-circ {
+  position: absolute;
+  padding: 10px;
+  background-color: hsl(174, 86%, 45%);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.small-circ :hover {
+  background-color: hsl(174, 70%, 80%);
+}
+
+.price {
+  margin-top: 10%;
+}
+.fa-chevron-right, .fa-chevron-left{
+  color: white;
+}
+.fa-toggle-off {
+  background-color: white;
+  color: hsl(223, 50%, 87%);
+  padding: 10px;
+  cursor: pointer;
+}
+.prc {
+  font-size: 32px;
+  font-weight: 800;
+}
+.discount {
+  background-color: hsl(14, 92%, 95%);
+  color: hsl(15, 100%, 70%);
+  padding: 5px 8px;
+  border-radius: 30%;
+  text-align: center;
+  font-weight: 800px;
+}
+
+button{
+  margin-top: 50px;
+  border: none;
+  outline: none;
+  padding:10px 20px;
+  background-color:hsl(227, 35%, 25%);
+  color: white;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+footer {
+  bottom: 0;
+}
+.attribution{
+  font-size: 15px;
+}
+
+@media screen and (min-width: 768px) {
+  .header {
+    margin-top: 3%;
+  }
+
+  .container, .container-1{
+    width: 40%;
+    height: 40%;
+    flex-direction: row;
+  }
+  .plans {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: justify;
+  }
+  .straight {
+    width: 80%;
+    margin-top: 10%;
+   
+  }
+  .container-1 {
+    display: flex;
+    justify-content: space-evenly;
+  }
+  .check {
+    text-align: justify;
+  }
+
+  button{
+    width: 50%;
+    margin-top: 70px;
+    margin-bottom: 10%;
+  }
+}
