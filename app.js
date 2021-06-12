@@ -32,22 +32,55 @@ const pageviews = [
 
 const newPrice = document.getElementById("prices");
 const pageView = document.getElementById("views");
+const suffix = document.getElementById("suffix")
 
 const prevBtn = document.querySelector(".fa-chevron-left");
 const nextBtn = document.querySelector(".fa-chevron-right");
 const toggleBtn = document.querySelector(".fa-toggle-off");
 
 let currentItem = 0;
+let priceExtract = ["8.00", "12.00", "16.00","24.00", "32.00"];
 
 window.addEventListener("DOMContentLoaded", function () {
-    showSlide(currentItem);
+    showSlide(currentItem, priceExtract);
 });
 
-function showSlide(slide) {
+let toggle =0;
+
+function setItemPrice() {
+    toggle++;
+
+    if (toggle === 0) {
+        priceExtract = pageviews.map((elem, index) =>{
+            let pricesOnly = pageviews[index].prices;
+            let pricesWithoutDollars = pricesOnly.substr(1);
+            return pricesWithoutDollars;
+        });
+        showSlide(currentItem, priceExtract);
+        suffix.textContent = '/month';
+        toggle = -1;
+    }
+
+    if (toggle === 1) {
+        priceExtract = pageviews.map((elem, index) =>{
+            let pricesOnly = pageviews[index].prices;
+            let pricesWithoutDollars = pricesOnly.substr(1);
+            return `${pricesWithoutDollars - (25/100) * pricesWithoutDollars}`;
+        });
+        showSlide(currentItem, priceExtract);
+        suffix.textContent = '/year';
+        toggle = +1;
+    }
+    //console.log(priceExtract);
+}
+
+toggleBtn.addEventListener('click',setItemPrice);
+
+function showSlide(slide, priceExtract) {
+    newPrice.textContent = `$${priceExtract[slide]}`
     const item = pageviews[slide];
-    pageView.textContent= item.views;
-    newPrice.textContent = item.prices;
-    return;
+    pageView.textContent = item.views;
+    //console.log(priceExtract);
 }
 
 nextBtn.addEventListener('click', function() {
@@ -55,7 +88,7 @@ nextBtn.addEventListener('click', function() {
     if(currentItem>pageviews.length-1) {
       currentItem = 0;
     }
-    showSlide(currentItem);
+    showSlide(currentItem, priceExtract);
 
 });
 
@@ -66,24 +99,18 @@ prevBtn.addEventListener('click', function() {
       currentItem = pageviews.length-1;
   
     }
-    showSlide(currentItem);
+    showSlide(currentItem, priceExtract);
 });
-// function discountPrice(slide) {
-//     let discount = 0.25 * slide;
-//     newPrice.textContent = `${discount} /year`;
+// var clicked = false;
 
-// }
+// toggleBtn.addEventListener('click', function() {
+//     if (clicked) {
+//         showSlide(currentItem);
+//         clicked = false;
+//     }
+//     else{
 
-var clicked = false;
-
-toggleBtn.addEventListener('click', function() {
-    if (clicked) {
-        showSlide(currentItem);
-        clicked = false;
-    }
-    else{
-
-        discountPrice(slide);
-        clicked = true;
-    }
-})
+//         discountPrice(slide);
+//         clicked = true;
+//     }
+// })

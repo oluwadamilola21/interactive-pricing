@@ -74,7 +74,7 @@ h3 {
   cursor: pointer;
 }
 
-.small-circ :hover {
+.small-circ:hover {
   background-color: hsl(174, 70%, 80%);
 }
 
@@ -85,10 +85,16 @@ h3 {
   color: white;
 }
 .fa-toggle-off {
+  border: none;
+  outline: none;
   background-color: white;
   color: hsl(223, 50%, 87%);
   padding: 10px;
   cursor: pointer;
+}
+
+.fa-toggle-off:hover {
+  color: hsl(174, 70%, 80%);
 }
 .prc {
   font-size: 32px;
